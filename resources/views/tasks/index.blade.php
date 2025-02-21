@@ -46,6 +46,11 @@
                             <input type="hidden" name="status" value="to_progress">
                             <button type="submit" class="btn btn-sm btn-warning">In Progress</button>
                         </form>
+                        <form action="{{ route('task.delete', $task->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
             @endforeach
@@ -71,6 +76,11 @@
                             <input type="hidden" name="status" value="completed">
                             <button type="submit" class="btn btn-sm btn-success">Complete</button>
                         </form>
+                        <form action="{{ route('task.delete', $task->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
             @endforeach
@@ -85,7 +95,7 @@
                     <div class="d-flex justify-content-center gap-2 mt-2">
                         <form action="{{ route('task.delete', $task->id) }}" method="POST">
                             @csrf
-                            @method('DELETE')
+                           @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>
                     </div>

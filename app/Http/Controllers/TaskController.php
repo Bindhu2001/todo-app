@@ -30,14 +30,9 @@ class TaskController extends Controller
         return redirect()->route('dashboard');
     }
     public function destroy($id)
-{
-    $task = Task::where('id', $id)->where('status', 'completed')->first();
-
-    if ($task) {
+    {
+        $task = Task::findOrFail($id);
         $task->delete();
-        return redirect()->route('dashboard')->with('success', 'Task deleted successfully.');
-    }
-
-    return redirect()->route('dashboard')->with('error', 'Task not found or cannot be deleted.');
-}
+        return redirect()->route('dashboard')->with('success', 'Task deleted successfully');
+    }    
 }
