@@ -79,9 +79,16 @@
         {{-- Completed Section --}}
         <div class="w-25">
             <h3 class="bg-secondary text-dark fw-semibold p-3 rounded-3">Completed</h3>
-            @foreach($tasks->where('status', 'completed') as $task)
+            @foreach($tasks->where('status', 'completed') as $task) 
                 <div class="task-box">
                     <p>{{ $task->content }}</p>
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                        <form action="{{ route('task.delete', $task->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </div>
                 </div>
             @endforeach
         </div>

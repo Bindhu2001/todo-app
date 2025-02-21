@@ -14,4 +14,5 @@ Route::get('/dashboard', [TaskController::class, 'index'])->name('dashboard');
 Route::post('/task/add', [TaskController::class, 'store'])->name('task.add');
 Route::patch('/task/update/{id}', [TaskController::class, 'update'])->name('task.update');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::delete('/task/delete/{id}', [TaskController::class, 'destroy'])->name('task.delete');
 
