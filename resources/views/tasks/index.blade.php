@@ -54,8 +54,7 @@
                     </div>
                 </div>
             @endforeach
-
-            {{-- Add New Task --}}
+            
             <form action="{{ route('task.add') }}" method="POST" class="mt-3">
                 @csrf
                 <input type="text" name="content" class="form-control border-primary rounded-3" placeholder="Type something here..." required>
